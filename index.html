@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            box-shadow: 0 0 15px #999;
+            border-radius: 50%;
+            width: 100px;
+        }
+        picture{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+   <h1>Men in Tech</h1> 
+   
+<div id='app'></div> 
+<script>
+    const $app = document.getElementById('app');
+    //Esta funcion recibe unos parametros y dependiendo de estos parametros, lo que hace es renderizar una cosa u otra.
+    const Avatar = params => {
+        const src= `https://randomuser.me/api/portraits/men/${params.id}.jpg`
+        return `
+            <picture>
+                <img src='${src}'/>
+           <em> ${params.name}</em>
+            </picture>
+            `;
+        };
+        $app.innerHTML+=Avatar({id:1,name: 'Fran'});
+        $app.innerHTML+=Avatar({id:2,name: 'Miguel'});
+
+</script>
+</body>
+</html>
